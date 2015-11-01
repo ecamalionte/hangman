@@ -19,11 +19,11 @@ getCh = do hSetEcho stdin False
 guess :: String -> IO ()
 guess guessWord =
   do putStr "Try to guess: "
-     tryWord <- getLine
-     if tryWord == guessWord then
+     attempt <- getLine
+     if attempt == guessWord then
        do putStrLn "You win!!!"
      else
-       do putStrLn (diff guessWord tryWord)
+       do putStrLn (diff guessWord attempt)
           guess guessWord
 
 diff :: String -> String -> String
